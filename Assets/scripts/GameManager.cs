@@ -5,6 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] BeeClass newBee;
     private float totalBees;
     private int visibleBeeCount; //limits number of bees onscreen so it doesn't get crazy
     [SerializeField] TextMeshProUGUI beeCountText;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
         if(visibleBeeCount <= 1000)
         {
             //create another bee
+            Instantiate(newBee);
+            
         }
 
         beeCountText.text = totalBees.ToString();
