@@ -551,6 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6fd1669af85b48ac69fe51fe9fa2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newBee: {fileID: 3679921885839568655, guid: dd923c5474fe6874faaabc02e9e14dc0, type: 3}
   beeCountText: {fileID: 324756006}
 --- !u!4 &1118894805
 Transform:
@@ -956,6 +957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a5718cd3b1a794da7c1074f459d59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beeSpeed: 0
+  directionType: 0
 --- !u!212 &1634798075
 SpriteRenderer:
   m_ObjectHideFlags: 0

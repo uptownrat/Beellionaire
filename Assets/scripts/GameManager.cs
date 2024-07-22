@@ -17,22 +17,23 @@ public class GameManager : MonoBehaviour
         visibleBeeCount = 0;
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
+    // Update is called once per frame
+    void Update()
+    {
 
-    //}
+    }
 
     public void AddBees()
     {
         totalBees++;
         visibleBeeCount++;
 
+        // limits amount of bees on screen
         if(visibleBeeCount <= 1000)
         {
             //create another bee
             Instantiate(newBee);
-            
+            //newBee.directionType = Random.Range(1, 8);
         }
 
         beeCountText.text = totalBees.ToString();
