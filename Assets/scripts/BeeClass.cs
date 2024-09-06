@@ -58,9 +58,13 @@ public class BeeClass : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // do smth
+        if (collision.tag == "wall")
+        {
+            Debug.Log("hit wall");
+            beeSpeed = beeSpeed * -1;
+        }
     }
 
 }
