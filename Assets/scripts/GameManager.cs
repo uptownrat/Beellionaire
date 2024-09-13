@@ -7,9 +7,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] BeeClass newBee;
     private float totalBees;
+    private float totalSpam;
     private int visibleBeeCount; //limits number of bees onscreen so it doesn't get crazy
     [SerializeField] TextMeshProUGUI beeCountText;
-    
+    [SerializeField] TextMeshProUGUI spamCountText;
+
+    LinkedList<BeeClass> beeList = new LinkedList<BeeClass>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +30,23 @@ public class GameManager : MonoBehaviour
     public void AddBees()
     {
         totalBees++;
-        visibleBeeCount++;
+        totalSpam = totalBees / 300;
+        // visibleBeeCount++;
 
         // limits amount of bees on screen
-        if(visibleBeeCount <= 1000)
+        while (beeList.Count >= 10)
+        {
+            beeList.RemoveFirst();
+        }
+
+        if (beeList.Count < 10)
         {
             //create another bee
             Instantiate(newBee);
-            //newBee.directionType = Random.Range(1, 8);
+            beeList.AddLast(newBee);
         }
 
         beeCountText.text = totalBees.ToString();
+        spamCountText.text = totalSpam.ToString();
     }
 }
