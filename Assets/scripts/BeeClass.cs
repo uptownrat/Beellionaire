@@ -25,35 +25,27 @@ public class BeeClass : MonoBehaviour
         {
             case 1:
                 transform.position = new Vector2(transform.position.x + beeSpeed * Time.deltaTime, transform.position.y);
-                Debug.Log("east, 1");
                 break;
             case 2:
                 transform.position = new Vector2(transform.position.x + beeSpeed * Time.deltaTime, transform.position.y - beeSpeed * Time.deltaTime);
-                Debug.Log("southeast, 2");
                 break;
             case 3:
                 transform.position = new Vector2(transform.position.x, transform.position.y - beeSpeed * Time.deltaTime);
-                Debug.Log("south, 3");
                 break;
             case 4:
                 transform.position = new Vector2(transform.position.x - beeSpeed * Time.deltaTime, transform.position.y - beeSpeed * Time.deltaTime);
-                Debug.Log("southwest, 4");
                 break;
             case 5:
                 transform.position = new Vector2(transform.position.x - beeSpeed * Time.deltaTime, transform.position.y);
-                Debug.Log("west, 5");
                 break;
             case 6:
                 transform.position = new Vector2(transform.position.x + beeSpeed * Time.deltaTime, transform.position.y + beeSpeed * Time.deltaTime);
-                Debug.Log("northwest, 6");
                 break;
             case 7:
                 transform.position = new Vector2(transform.position.x, transform.position.y + beeSpeed * Time.deltaTime);
-                Debug.Log("north, 7");
                 break;
             default:
                 transform.position = new Vector2(transform.position.x + beeSpeed * Time.deltaTime, transform.position.y + beeSpeed * Time.deltaTime);
-                Debug.Log("northeast, 8");
                 break;
         }
     }
@@ -62,7 +54,6 @@ public class BeeClass : MonoBehaviour
     {
         if (collision.tag == "wall")
         {
-            Debug.Log("hit wall");
             beeSpeed = beeSpeed * -1;
         }
     }

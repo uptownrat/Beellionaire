@@ -6,10 +6,10 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] BeeClass newBee;
-    private float totalBees;
+    public float totalBees;
     private float totalSpam;
     private int visibleBeeCount; //limits number of bees onscreen so it doesn't get crazy
-    [SerializeField] TextMeshProUGUI beeCountText;
+    [SerializeField] public TextMeshProUGUI beeCountText;
     [SerializeField] TextMeshProUGUI spamCountText;
 
     protected uint beesPerClick;
@@ -41,11 +41,12 @@ public class GameManager : MonoBehaviour
     {
         totalBees += beesPerClick;
         totalSpam = totalBees / 300;
+        Instantiate(newBee);
         // visibleBeeCount++;
 
 
-        beeCountText.text = totalBees.ToString();
-        spamCountText.text = totalSpam.ToString();
+        beeCountText.text = "total bees: " + totalBees.ToString();
+        spamCountText.text = "spam cans: " + totalSpam.ToString();
     }
 
     public void BPC()
