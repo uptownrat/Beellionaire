@@ -73,7 +73,7 @@ public class beeper : MonoBehaviour
     public void AddBeeper()
     {
         numBeepers++;
-        Instantiate(beeperMan);
+        Instantiate(beeperMan, new Vector3(0.0f, -4.5f, 0.0f), Quaternion.identity);
         Debug.Log("created beeper");
     }
 }
