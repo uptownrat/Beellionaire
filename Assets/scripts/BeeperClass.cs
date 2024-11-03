@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class beeper : MonoBehaviour
+public class BeeperClass : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
 
