@@ -3,77 +3,108 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class BeeperClass : MonoBehaviour
+public class HireBeepers : UpgradeClass
 {
     [SerializeField] GameManager gameManager;
-
-    uint numBeepers;
-    float beepCost;
-    [SerializeField] float beepCostMult;
-
-    uint beeped;
-    [SerializeField] float beepedMult;
-    [SerializeField] float beepedCost;
-    [SerializeField] float beepedCostMult;
-
-    float beepTimer;
-    float pickInterval;
-
-    [SerializeField] float pickIntMult;
-    [SerializeField] float pickIntCost;
-    [SerializeField] float pickIntCostMult;
-
     [SerializeField] GameObject beeperMan;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        numBeepers = 0;
+        numUpgrades = 0;
+        itemCost = 50.0f;
+        costMult = 1.2f;
+        itemMult = 1.1f;
 
-        beepCost = 50.0f;
-        beepCostMult = 1.2f;
-
-        beeped = 1;
-        beepedMult = 1.1f;
-        beepedCost = 50.0f;
-        beepedCostMult = 1.2f;
-
-        beepTimer = 0.0f;
-
-        pickInterval = 5.0f;
-        pickIntMult = 0.02f;
-        pickIntCost = 60.0f;
-        pickIntCostMult = 1.25f;
-
+        itemQuantity = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public uint getNumBeeper()
+    {
+        return itemQuantity;
+    }
+
+    public void AddBeeper()
+    {
+        numUpgrades++;
+        Instantiate(beeperMan, new Vector3(0.0f, -4.5f, 0.0f), Quaternion.identity);
+        Debug.Log("created beeper");
+    }
+}
+
+public class BeeperIntervalClass : UpgradeClass
+{
+
+    void Start()
+    {
+        numUpgrades = 0;
+        itemQuantityFloat = 5.0f;
+        itemCost = 60.0f;
+        costMult = 1.25f;
+        itemMult = 0.02f;
+    }
+
+    private void Update()
+    {
+
+    }
+
+    public float getItemQuantity() { return itemQuantityFloat; }
+}
+
+public class BeeperEfficiencyClass : UpgradeClass
+{
+
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+
+    }
+
+}
+
+public class BeeperClass : MonoBehaviour
+{
+    [SerializeField] GameManager gameManager;
+    [SerializeField] HireBeepers beeper;
+    [SerializeField] BeeperEfficiencyClass beeperEfficiency;
+    [SerializeField] BeeperIntervalClass beeperInterval;
+
+    protected float beepTimer;
+
+    void Start()
+    {
+        beepTimer = 0.0f;
+    }
+
+    void Update()
+    {
         beepTimer += Time.deltaTime;
-        if (beepTimer > pickInterval)
+        if (beepTimer > )
         {
             triggerBeep();
             beepTimer = 0.0f;
         }
     }
 
-    // auto click trigger
+    // auto clicker
     public void triggerBeep()
     {
         uint numBeeps;
-        numBeeps = beeped * numBeepers;
-        Debug.Log("beeped: " +  numBeeps);
+        numBeeps = (uint)beeperInterval.getItemQuantity() * beeper.getNumBeeper();
+        Debug.Log("beeped: " + numBeeps);
         gameManager.totalBees += numBeeps;
         // take intbeespicked = 1*numbeeper * beepedmult
         gameManager.beeCountText.text = "total bees: " + gameManager.totalBees;
-    }
-
-    public void AddBeeper()
-    {
-        numBeepers++;
-        Instantiate(beeperMan, new Vector3(0.0f, -4.5f, 0.0f), Quaternion.identity);
-        Debug.Log("created beeper");
     }
 }

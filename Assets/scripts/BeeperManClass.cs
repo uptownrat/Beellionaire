@@ -18,6 +18,7 @@ public class BeeperManClass : MonoBehaviour
         transform.position = new Vector2(transform.position.x + beeperSpeed * Time.deltaTime, transform.position.y);
     }
 
+    // wall collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "wall")
