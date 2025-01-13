@@ -68,23 +68,40 @@ public class BeeperClass : MonoBehaviour
         }
     }
 
-    // auto click trigger
-    // generates more bees
-    public void triggerBeep()
-    {
-        uint numBeeps;
-        numBeeps = beeped * numBeepers;
-        Debug.Log("beeped: " +  numBeeps);
-        gameManager.totalBees += numBeeps;
-        // take intbeespicked = 1*numbeeper * beepedmult
-        gameManager.beeCountText.text = "total bees: " + gameManager.totalBees;
-    }
 
+    // BEEKEEPER UPGRADES //////////////////////////////////////////////////////////////////////////////////
     // creates a new beekeeper
     public void AddBeeper()
     {
         numBeepers++;
         Instantiate(beeperMan);
         Debug.Log("created beeper");
+    }
+
+    // upgrades beekeeper efficiency
+    public void BeeperEfficiency()
+    {
+
+    }
+
+    // upgrades beekeeper interval
+    public void BeeperInterval()
+    {
+
+    }
+
+
+    // HELPER FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////
+    // auto click trigger; generates more bees
+    public void triggerBeep()
+    {
+        uint numBeeps;
+
+        numBeeps = beeped * numBeepers;
+        gameManager.totalBees += numBeeps;
+        Debug.Log("beeped: " + numBeeps);
+
+        // display text
+        gameManager.beeCountText.text = "total bees: " + gameManager.totalBees;
     }
 }
