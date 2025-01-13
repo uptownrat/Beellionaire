@@ -49,7 +49,7 @@ public class BeeperClass : MonoBehaviour
         // interval at which beekeepers generate new bees
         // cost of upgrading the beekeeper interval and how much it goes up per purchase
         pickInterval = 5.0f;
-        pickIntMult = 0.02f;
+        pickIntMult = 0.98f;
         pickIntCost = 60.0f;
         pickIntCostMult = 1.25f;
 
@@ -73,6 +73,7 @@ public class BeeperClass : MonoBehaviour
     // creates a new beekeeper
     public void AddBeeper()
     {
+        // increase number of beekeepers
         numBeepers++;
         Instantiate(beeperMan);
         Debug.Log("created beeper");
@@ -81,13 +82,39 @@ public class BeeperClass : MonoBehaviour
     // upgrades beekeeper efficiency
     public void BeeperEfficiency()
     {
+        // increase beeped var based on beepedMult var
+        beeped = (uint)Mathf.Ceil(beeped * beepedMult);
+        Debug.Log("beeped var = " + beeped);
 
+        // increase beepCost based on beepCostMult
+        beepCost = beepCost * beepCostMult;
     }
 
     // upgrades beekeeper interval
     public void BeeperInterval()
     {
+        // lower pickInterval based on pickIntMult
+        if (pickInterval > 0.5f)
+        {
+            pickInterval = pickInterval * pickIntMult;
 
+            // force it to 2 decimal places
+            float remainder = (pickInterval % 0.01f);
+            pickInterval = remainder >= 0.005f ? pickInterval + (0.01f - remainder) : pickInterval - remainder;
+        }
+
+        // cap pickInterval upgrades to beekeepers triggering once every 0.5 seconds
+        else if (pickInterval < 0.5f)
+        {
+            pickInterval = 0.5f;
+
+            // TO-DO: lock the pickInterval upgrade button
+        }
+
+        Debug.Log("pick interval = " + pickInterval);
+
+        // increase pickIntCost based on pickIntCostMult
+        pickIntCost = pickIntCost * pickIntCostMult;
     }
 
 
@@ -99,7 +126,7 @@ public class BeeperClass : MonoBehaviour
 
         numBeeps = beeped * numBeepers;
         gameManager.totalBees += numBeeps;
-        Debug.Log("beeped: " + numBeeps);
+        Debug.Log("bees generated: " + numBeeps);
 
         // display text
         gameManager.beeCountText.text = "total bees: " + gameManager.totalBees;

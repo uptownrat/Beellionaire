@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] BeeClass newBee;
     public float totalBees;
     private float totalSpam;
-    private int visibleBeeCount; //limits number of bees onscreen so it doesn't get crazy
+    private int visibleBeeCount; // limits number of bees onscreen so it doesn't get crazy
     [SerializeField] public TextMeshProUGUI beeCountText;
     [SerializeField] TextMeshProUGUI spamCountText;
 
