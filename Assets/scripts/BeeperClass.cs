@@ -6,6 +6,7 @@ using UnityEngine;
 public class BeeperClass : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    [SerializeField] HBHClass hbh;
 
     uint numBeepers;
     float beepCost;
@@ -123,8 +124,13 @@ public class BeeperClass : MonoBehaviour
     public void triggerBeep()
     {
         uint numBeeps;
-
         numBeeps = beeped * numBeepers;
+
+        if (gameManager.hbhActive == true)
+        {
+            numBeeps = (uint)(numBeeps * hbh.effic);
+        }
+
         gameManager.totalBees += numBeeps;
         Debug.Log("bees generated: " + numBeeps);
 

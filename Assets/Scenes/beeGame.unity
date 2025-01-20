@@ -1884,6 +1884,8 @@ MonoBehaviour:
   BPC_cost: 0
   BPC_mult: 0
   BPC_multCost: 0
+  hbhActive: 0
+  hbh: {fileID: 2006241401}
 --- !u!4 &1118894805
 Transform:
   m_ObjectHideFlags: 0
@@ -2898,6 +2900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1118894804}
+  hbh: {fileID: 2006241401}
   beepCostMult: 0
   beepedMult: 0
   beepedCost: 0
@@ -3570,6 +3573,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6bc592339b7f8d4a98ebbc3a5ed97fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1118894804}
+  length: 0
+  lengthCost: 0
+  lengthCostMult: 0
+  effic: 0
+  efficCost: 0
+  efficCostMult: 0
+  trigIntCost: 0
+  trigIntCostMult: 0
 --- !u!1 &2096927146
 GameObject:
   m_ObjectHideFlags: 0
