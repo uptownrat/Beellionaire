@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] BeeClass newBee;
     public float totalBees;
     private float totalSpam;
-    private int visibleBeeCount; //limits number of bees onscreen so it doesn't get crazy
+    private int visibleBeeCount; // limits number of bees onscreen so it doesn't get crazy
     [SerializeField] public TextMeshProUGUI beeCountText;
     [SerializeField] TextMeshProUGUI spamCountText;
 
@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] float BPC_mult;
     [SerializeField] float BPC_multCost;
     private int numBPCClicks;
+
+    // hbh
+    public bool hbhActive;
+    [SerializeField] HBHClass hbh;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +33,8 @@ public class GameManager : MonoBehaviour
         BPC_cost = 10.0f;
         BPC_mult = 1.1f;
         BPC_multCost = 1.2f;
+
+        hbhActive = false;
     }
 
     // Update is called once per frame
@@ -37,18 +43,27 @@ public class GameManager : MonoBehaviour
 
     }
 
+    // add bees to the total bee count
     public void AddBees()
     {
-        totalBees += beesPerClick;
+        if (hbhActive == true)
+        {
+            totalBees += beesPerClick * hbh.effic;
+        }
+        else
+        {
+            totalBees += beesPerClick;
+        }
+
         totalSpam = totalBees / 300;
         Instantiate(newBee);
         // visibleBeeCount++;
-
 
         beeCountText.text = "total bees: " + totalBees.ToString();
         spamCountText.text = "spam cans: " + totalSpam.ToString();
     }
 
+    // upgrades the number of bees you generate when you click
     public void BPC()
     {
         numBPCClicks++;
