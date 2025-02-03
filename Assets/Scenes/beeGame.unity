@@ -1890,7 +1890,7 @@ MonoBehaviour:
   hbhActive: 0
   hbh: {fileID: 2006241401}
   beeroidsActive: 0
-  beeroids: {fileID: 0}
+  beeroids: {fileID: 632152645}
 --- !u!4 &1118894805
 Transform:
   m_ObjectHideFlags: 0
@@ -2906,6 +2906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1118894804}
   hbh: {fileID: 2006241401}
+  beeroids: {fileID: 632152645}
   beepCostMult: 0
   beepedMult: 0
   beepedCost: 0

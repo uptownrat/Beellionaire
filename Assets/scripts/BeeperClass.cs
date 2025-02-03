@@ -7,6 +7,7 @@ public class BeeperClass : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     [SerializeField] HBHClass hbh;
+    [SerializeField] BeeroidClass beeroids;
 
     uint numBeepers;
     float beepCost;
@@ -129,6 +130,10 @@ public class BeeperClass : MonoBehaviour
         if (gameManager.hbhActive == true)
         {
             numBeeps = (uint)(numBeeps * hbh.effic);
+        }
+        else if (gameManager.beeroidsActive == true)
+        {
+            numBeeps = (uint)(numBeeps * beeroids.effic);
         }
 
         gameManager.totalBees += numBeeps;

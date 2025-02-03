@@ -55,6 +55,10 @@ public class GameManager : MonoBehaviour
         {
             totalBees += beesPerClick * hbh.effic;
         }
+        else if (beeroidsActive == true)
+        {
+            totalBees += beesPerClick * beeroids.effic;
+        }
         else
         {
             totalBees += beesPerClick;

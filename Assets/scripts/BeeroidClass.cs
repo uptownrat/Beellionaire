@@ -6,21 +6,23 @@ public class BeeroidClass : MonoBehaviour
 {
     // variables go up here
     [SerializeField] GameManager gameManager;
-    [SerializeField] beeMoney playerMoney;
+    [SerializeField] HoneycoinClass playerMoney;
+
+    float researchCost;
+    float researchCostMult;
 
     float beeroidCost;
     float beeroidCostMult;
 
     public float effic;
-    float efficDecMult;
-    float efficIncMult;     // keep locked
+    float efficMult;
     float efficIncCost;
     float efficIncCostMult;
 
     float roidTimer;
     float roidLength;
 
-    uint counter;
+    int counter;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class BeeroidClass : MonoBehaviour
         roidTimer = 0.0f;
 
         effic = 100.0f;
+        efficMult = 0.75f;
     }
 
     // Update is called once per frame
@@ -65,14 +68,14 @@ public class BeeroidClass : MonoBehaviour
                 gameManager.hbhActive = false;
             }
 
-            // change costs and mults and stuff
+            // change efficiency based on how many times youve bought roids
+            effic = 100 * Mathf.Pow(efficMult, counter);
+            counter++;
 
-            // effic = 100 * Mathf.Pow(0.75, counter);
-            // bring counter up by 1
-
+            // TO-DO: change costs and such
         }
 
-        // TO-DO: change the sprite or something to show the button wont work if true
+        // TO-DO: change the sprite or something to show the button wont work if roids r active
     }
 
     // increases efficiency/raises roid multiplier
@@ -80,6 +83,16 @@ public class BeeroidClass : MonoBehaviour
     {
         // if counter is 0, do nothing
         // but if counter is > 0, bring it down by 1
+        if (counter > 0)
+        {
+            counter--;
+
+            // change cost and such
+        }
+        else
+        {
+            counter = 0;
+        }
     }
 
 
