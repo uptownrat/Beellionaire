@@ -871,6 +871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c048256b4ce052248891b5efee61d41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1118894804}
+  playerMoney: {fileID: 0}
+  effic: 0
 --- !u!1 &653726677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,7 +1229,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 632152645}
         m_TargetAssemblyTypeName: BeeroidClass, Assembly-CSharp
-        m_MethodName: researchRoids
+        m_MethodName: ResearchRoids
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1886,6 +1889,8 @@ MonoBehaviour:
   BPC_multCost: 0
   hbhActive: 0
   hbh: {fileID: 2006241401}
+  beeroidsActive: 0
+  beeroids: {fileID: 0}
 --- !u!4 &1118894805
 Transform:
   m_ObjectHideFlags: 0
@@ -2122,7 +2127,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 632152645}
         m_TargetAssemblyTypeName: BeeroidClass, Assembly-CSharp
-        m_MethodName: buyRoids
+        m_MethodName: BuyRoids
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

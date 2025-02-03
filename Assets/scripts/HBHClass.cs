@@ -57,7 +57,7 @@ public class HBHClass : MonoBehaviour
     void Update()
     {
         // if hbh is Not active, work towards activating it
-        if (gameManager.hbhActive == false)
+        if (gameManager.hbhActive == false && gameManager.beeroidsActive != true)
         {
             // check hbh timer against the hbh trigger interval
             // if check succeeds, trigger hbh
@@ -86,6 +86,17 @@ public class HBHClass : MonoBehaviour
             }
         }
 
+        // whether hbhActive is true or not, but beeroids are true, turn off hbh
+        // reset hbh stuff back to default so no timers tick up or anything
+        else if (gameManager.beeroidsActive == true)
+        {
+            gameManager.hbhActive = false;
+
+            hbhTimer = 0.0f;
+            checkTimer = 0.0f;
+            triggerChance = 0.1f;
+        }
+
         // if hbh Is active, work towards deactivating it
         else
         {
@@ -111,6 +122,8 @@ public class HBHClass : MonoBehaviour
         {
             length += 2.0f;
             lengthCost = lengthCost * lengthCostMult;
+
+            Debug.Log("hbh length = " + length);
         }
 
         // else, deactivate the button for the upgrade or something
@@ -121,6 +134,8 @@ public class HBHClass : MonoBehaviour
     {
         effic += 0.2f;
         efficCost = efficCost * efficCostMult;
+
+        Debug.Log("hbh effic = " + effic);
     }
 
     // decrease hbh trigger check interval
@@ -130,6 +145,8 @@ public class HBHClass : MonoBehaviour
         {
             triggerInterval -= 2.0f;
             trigIntCost = trigIntCost * trigIntCostMult;
+
+            Debug.Log("trigger interval = " + triggerInterval);
         }
     }
 

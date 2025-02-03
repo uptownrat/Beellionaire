@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     public bool hbhActive;
     [SerializeField] HBHClass hbh;
 
+    // beeroids
+    public bool beeroidsActive;
+    [SerializeField] BeeroidClass beeroids;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
         BPC_multCost = 1.2f;
 
         hbhActive = false;
+        beeroidsActive = false;
     }
 
     // Update is called once per frame
