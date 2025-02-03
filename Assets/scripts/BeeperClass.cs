@@ -76,7 +76,7 @@ public class BeeperClass : MonoBehaviour
     {
         // increase number of beekeepers
         numBeepers++;
-        Instantiate(beeperMan);
+        Instantiate(beeperMan, new Vector3(0.0f, -4.5f, 0.0f), Quaternion.identity);
         Debug.Log("created beeper");
     }
 
