@@ -19,8 +19,10 @@ public class HoneycoinClass : MonoBehaviour
     {
         HCEarned = 0.0f;
         HCEarnedTimer = 0.0f;
-        HCEarnedInterval = 10.0f;
+        HCEarnedInterval = 4.0f;
         HCMult = 0.02f;
+
+        HCText = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

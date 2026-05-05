@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         totalBees = 0;
+        totalSpam = 0;
         visibleBeeCount = 0;
         numBPCClicks = 0;
 
