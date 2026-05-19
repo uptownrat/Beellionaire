@@ -102,9 +102,9 @@ MonoBehaviour:
   beeSpeed: 0
   velocity: {x: 0, y: 0}
   acceleration: {x: 0, y: 0}
-  accelMult: 1
-  mass: 5
-  maxForce: 5
+  accelMult: 10
+  mass: 0.13
+  maxForce: 0.18
 --- !u!58 &3679921885839568648
 CircleCollider2D:
   m_ObjectHideFlags: 0

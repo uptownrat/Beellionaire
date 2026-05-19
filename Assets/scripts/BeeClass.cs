@@ -10,10 +10,10 @@ public class BeeClass : MonoBehaviour
     Vector2 location;
     public Vector2 velocity;
     public Vector2 acceleration;
-    public float accelMult = 1f;
+    public float accelMult = 10f;
 
-    public float mass = 5f;
-    public float maxForce = 5f;
+    public float mass = 0.13f;
+    public float maxForce = 0.18f;
 
     float wanderAngle = 0;
 
@@ -22,7 +22,7 @@ public class BeeClass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        beeSpeed = 0.013f;
+        beeSpeed = 0.2f;
         location = new Vector2(0, 0);
         velocity = new Vector2(0, 0);
         acceleration = new Vector2(0, 0);
@@ -32,7 +32,7 @@ public class BeeClass : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         fly();
         location.x = Mathf.Clamp(location.x, -9, 9);
