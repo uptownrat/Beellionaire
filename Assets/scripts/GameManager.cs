@@ -22,10 +22,15 @@ public class GameManager : MonoBehaviour
     public bool hbhActive;
     [SerializeField] HBHClass hbh;
 
+    // beeroids
+    public bool beeroidsActive;
+    [SerializeField] BeeroidClass beeroids;
+
     // Start is called before the first frame update
     void Start()
     {
         totalBees = 0;
+        totalSpam = 0;
         visibleBeeCount = 0;
         numBPCClicks = 0;
 
@@ -35,6 +40,7 @@ public class GameManager : MonoBehaviour
         BPC_multCost = 1.2f;
 
         hbhActive = false;
+        beeroidsActive = false;
     }
 
     // Update is called once per frame
@@ -49,6 +55,10 @@ public class GameManager : MonoBehaviour
         if (hbhActive == true)
         {
             totalBees += beesPerClick * hbh.effic;
+        }
+        else if (beeroidsActive == true)
+        {
+            totalBees += beesPerClick * beeroids.effic;
         }
         else
         {
