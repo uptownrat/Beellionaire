@@ -30,7 +30,7 @@ public class StoreClass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bpcButton.setStoreItemClass(10, 0.5f, 10);
+        bpcButton.setStoreItemClass(10, 1.5f);
     }
 
     // Update is called once per frame

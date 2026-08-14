@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         totalBees = 0;
         totalSpam = 0;
-        visibleBeeCount = 0;
+        visibleBeeCount = 10;
         numBPCClicks = 0;
 
         beesPerClick = 1;
@@ -66,8 +66,10 @@ public class GameManager : MonoBehaviour
         }
 
         totalSpam = totalBees / 300;
-        Instantiate(newBee);
-        // visibleBeeCount++;
+        if (totalBees < visibleBeeCount)
+        {
+            Instantiate(newBee);
+        }
 
         beeCountText.text = "total bees: " + totalBees.ToString();
         spamCountText.text = "spam cans: " + totalSpam.ToString();

@@ -961,9 +961,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1118894804}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BPC
+      - m_Target: {fileID: 653726682}
+        m_TargetAssemblyTypeName: StoreItemClass, Assembly-CSharp
+        m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1024,6 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   costDisplay: {fileID: 1408478795}
+  honeycoin: {fileID: 1700083243}
 --- !u!1 &657526477
 GameObject:
   m_ObjectHideFlags: 0

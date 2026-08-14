@@ -33,7 +33,6 @@ public class HoneycoinClass : MonoBehaviour
         {
             AddMoney();
             HCEarnedTimer = 0.0f;
-            DisplayMoney();
         }
     }
 
@@ -43,6 +42,7 @@ public class HoneycoinClass : MonoBehaviour
         HCEarned = gameManager.totalBees * 0.02f;
         Debug.Log("total bees: " + gameManager.totalBees);
         HCTotal += HCEarned;
+        DisplayMoney();
     }
 
     public void DisplayMoney()
@@ -51,4 +51,9 @@ public class HoneycoinClass : MonoBehaviour
 
     }
 
+    public void SubtractMoney(float cost)
+    {
+        HCTotal -= cost;
+        DisplayMoney();
+    }
 }
