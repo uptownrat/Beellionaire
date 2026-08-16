@@ -5,10 +5,20 @@ using TMPro;
 
 public class StoreItemClass : MonoBehaviour
 {
-    float cost;
     [SerializeField] TextMeshProUGUI costDisplay;
-    float costMult;
+
+    public float cost;
+    public float costMult;
     float baseCost;
+
+    public float upgradeMult;
+    public float upgradeF;
+    float baseUpgradeF;
+    public int upgradeI;
+    int baseUpgradeI;
+
+    bool isUnlocked;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +32,39 @@ public class StoreItemClass : MonoBehaviour
         
     }
 
-    public void setStoreItemClass(float c, float cm, float bc)
+    public void SetCost(float c, float bc, float cm)
     {
         cost = c;
-        costMult = cm;
         baseCost = bc;
+        costMult = cm;
     }
+    
+    // for setting decimnal upgrades
+    public void SetUpgrade(float u, float bu, float um)
+    {
+        upgradeF = u;
+        baseUpgradeF = bu;
+        upgradeMult = um;
+    }
+
+    // for setting decimnal upgrades
+    public void SetUpgrade(int u, int bu, float um)
+    {
+        upgradeI = u;
+        baseUpgradeI = bu;
+        upgradeMult = um;
+    }
+
+    //checks for money and increases cost
+    public void Purchase()
+    {
+        cost = cost * costMult;
+    }
+
+    public void writetest()
+    {
+        Debug.Log("cost: " + cost + ", upgrade amt f: " + upgradeF);
+    }
+
+    //TO-DO: unlock purchase function
 }
