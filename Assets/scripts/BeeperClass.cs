@@ -9,9 +9,9 @@ public class BeeperClass : MonoBehaviour
     [SerializeField] HBHClass hbh;
     [SerializeField] BeeroidClass beeroids;
 
-    StoreItemClass beepers = new StoreItemClass();
-    StoreItemClass beeped = new StoreItemClass();
-    StoreItemClass pickInterval = new StoreItemClass();
+    public StoreItemClass beepers = new StoreItemClass();
+    public StoreItemClass beeped = new StoreItemClass();
+    public StoreItemClass pickInterval = new StoreItemClass();
 
     float beepTimer;
     
@@ -112,7 +112,7 @@ public class BeeperClass : MonoBehaviour
 
         if (gameManager.hbhActive == true)
         {
-            numBeeps = (int)(numBeeps * hbh.effic);
+            numBeeps = (int)(numBeeps * hbh.effic.upgradeF);
         }
         else if (gameManager.beeroidsActive == true)
         {

@@ -56,6 +56,7 @@ public class StoreItemClass : MonoBehaviour
     }
 
     //checks for money and increases cost
+    // TO-DO: take money from bank?
     public void Purchase()
     {
         cost = cost * costMult;

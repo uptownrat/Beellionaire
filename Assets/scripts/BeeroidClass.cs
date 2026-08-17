@@ -8,16 +8,9 @@ public class BeeroidClass : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] HoneycoinClass playerMoney;
 
-    float researchCost;
-    float researchCostMult;
-
-    float beeroidCost;
-    float beeroidCostMult;
-
-    public float effic;
-    float efficMult;
-    float efficIncCost;
-    float efficIncCostMult;
+    public StoreItemClass research = new StoreItemClass();
+    public StoreItemClass beeroid = new StoreItemClass();
+    public StoreItemClass effic = new StoreItemClass();
 
     float roidTimer;
     float roidLength;
@@ -33,8 +26,10 @@ public class BeeroidClass : MonoBehaviour
         roidLength = 10.0f;
         roidTimer = 0.0f;
 
-        effic = 100.0f;
-        efficMult = 0.75f;
+        //effic = 100.0f;
+        //efficMult = 0.75f;
+
+        effic.SetUpgrade(100.0f, 100.0f, 0.75f);
     }
 
     // Update is called once per frame
@@ -69,7 +64,7 @@ public class BeeroidClass : MonoBehaviour
             }
 
             // change efficiency based on how many times youve bought roids
-            effic = 100 * Mathf.Pow(efficMult, counter);
+            effic.upgradeF = 100 * Mathf.Pow(effic.upgradeMult, counter);
             counter++;
 
             // TO-DO: change costs and such
